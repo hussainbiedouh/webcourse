@@ -1,0 +1,26 @@
+<div class="alb">
+<h2>
+Items Count = {{items.length}}
+</h2>
+
+Product Name:<input type="text" #itemText > <br>
+<br>
+Price :<input type="number" #itemPrice (keyup)="handleKeyUp($event,itemText.value)"> <br>
+<br>
+Count:<input type="number" #itemNumber (keyup)="handleKeyUp($event,itemText.value)"> <br>
+<br>
+<button (click)="addNewItem(itemText.value,itemPrice.value,itemNumber.value)"> Add Item </button>
+<ol class="list">
+    <div *ngFor="let item of items">
+      
+      {{item.toString()}}
+      <a href="#" (click)="removeItem(item)">  (X) </a>
+      
+    </div>
+</ol>
+
+
+Total: <input class="result" type="text" value={{totalPrice()}}>
+
+</div>
+
